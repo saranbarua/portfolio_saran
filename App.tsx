@@ -77,6 +77,18 @@ const PROJECTS: Project[] = [
     color: "from-pink-500 to-rose-500",
     tags: ["ViroReact", "GraphQL", "Node.js"],
   },
+  {
+    id: 5,
+    title: "Foodie",
+    category: "Lifestyle",
+    description:
+      "Restaurant discovery app with AR menus. Point your phone at a restaurant to see 3D floating dishes.",
+    downloads: "25k+",
+    rating: 4.7,
+    image: "https://picsum.photos/200/200?random=4",
+    color: "from-pink-500 to-rose-500",
+    tags: ["ViroReact", "GraphQL", "Node.js"],
+  },
 ];
 
 const SKILLS = [
