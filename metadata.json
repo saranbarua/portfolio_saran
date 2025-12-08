@@ -1,0 +1,7 @@
+{
+  "name": "Saran Barua | React Native Alchemist",
+  "description": "A high-end, mobile-first personal portfolio featuring 3D interactions, smooth scrolling, and a premium aesthetic.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
