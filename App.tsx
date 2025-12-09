@@ -22,6 +22,7 @@ import {
   Sparkles,
   Layers,
   Mic,
+  Facebook,
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { ProjectCard } from "./components/ProjectCard";
@@ -371,13 +372,22 @@ export default function App() {
             </motion.div>
 
             <div className="flex space-x-6 text-gray-400">
-              <a href="#" className="hover:text-brand-purple transition-colors">
+              <a
+                href="https://github.com/saranbarua"
+                className="hover:text-brand-purple transition-colors"
+              >
                 <Github />
               </a>
-              <a href="#" className="hover:text-brand-cyan transition-colors">
-                <Twitter />
+              <a
+                href="https://www.facebook.com/saran.barua.98/"
+                className="hover:text-brand-cyan transition-colors"
+              >
+                <Facebook />
               </a>
-              <a href="#" className="hover:text-brand-pink transition-colors">
+              <a
+                href="https://www.linkedin.com/in/saran-barua/"
+                className="hover:text-brand-pink transition-colors"
+              >
                 <Linkedin />
               </a>
             </div>
@@ -444,15 +454,15 @@ export default function App() {
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border border-gray-100 dark:border-white/5">
               <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-purple to-brand-cyan mb-6 overflow-hidden">
                 <img
-                  src="https://picsum.photos/200/200?grayscale"
+                  src="./components/assets/dp1.jpg"
                   alt="Avatar"
                   className="w-full h-full object-cover mix-blend-overlay opacity-80"
                 />
               </div>
               <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300 mb-6 font-medium">
-                I'm a Co-Founder & Mobile Architect based in Bangladesh. I don't
-                just write code; I craft systems. I co-founded a startup with my
-                partner Kamrul, focusing on scalable SaaS solutions.
+                I'm a Co-Founder & Mobile and Web Architect based in Bangladesh.
+                I don't just write code; I craft systems. I co-founded a
+                startup, focusing on scalable SaaS solutions.
               </p>
               <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
                 When I'm not fighting Xcode build errors, I'm contributing to
