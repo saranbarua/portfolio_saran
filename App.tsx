@@ -408,7 +408,7 @@ export default function App() {
       </section>
 
       {/* --- WORK SECTION (Showcase) --- */}
-      <section id="work" className="py-24 relative">
+      <section id="work" className="py-12 relative">
         <div className="container mx-auto px-6 mb-12">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
@@ -418,22 +418,40 @@ export default function App() {
             Selected Work
           </motion.h2>
           <p className="text-gray-500 text-lg max-w-xl">
-            A collection of cross-platform apps built with React Native, Expo,
-            and pure obsession for details.
+            That define my career.
           </p>
         </div>
 
         {/* Horizontal Scroll Area */}
         <div className="w-full overflow-x-auto no-scrollbar pb-20 pl-6 md:pl-[max(2rem,calc((100vw-1200px)/2))]">
-          <div className="flex space-x-8 w-max pr-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {PROJECTS.map((project, index) => (
               <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
+                className="max-w-xs mx-auto"
               >
-                <ProjectCard project={project} />
+                <div
+                  className={`bg-gradient-to-r ${project.color} rounded-lg shadow-lg p-6 cursor-pointer relative overflow-hidden transition-transform hover:scale-105 hover:shadow-xl`}
+                >
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-48 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-white text-sm mb-4">
+                    {project.description}
+                  </p>
+                  <span className="text-white text-sm">
+                    {project.downloads} downloads
+                  </span>
+                  <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
               </motion.div>
             ))}
           </div>
