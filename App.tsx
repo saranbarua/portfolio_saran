@@ -558,15 +558,24 @@ export default function App() {
           </motion.div>
 
           <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-            <p>&copy; 2025 Saran Barua. Built with React & Framer Motion.</p>
+            <p>&copy; 2025 Saran Barua. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors">
-                Github
-              </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="https://x.com/barua_saran"
+                className="hover:text-white transition-colors"
+              >
                 Twitter
               </a>
-              <a href="#" className="hover:text-white transition-colors">
+              <a
+                href="https://www.facebook.com/saran.barua.98/"
+                className="hover:text-white transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.instagram.com/saran__barua/"
+                className="hover:text-white transition-colors"
+              >
                 Instagram
               </a>
             </div>
