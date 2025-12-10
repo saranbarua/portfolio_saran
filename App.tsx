@@ -547,7 +547,7 @@ export default function App() {
             className="max-w-2xl mx-auto"
           >
             <h2 className="text-5xl font-bold font-display mb-8">
-              Ready to build the next big thing?
+              Let's build something amazing.
             </h2>
             <button
               className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.3)]"
