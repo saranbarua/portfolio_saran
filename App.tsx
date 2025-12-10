@@ -23,6 +23,7 @@ import {
   Layers,
   Mic,
   Facebook,
+  Briefcase,
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { ProjectCard } from "./components/ProjectCard";
@@ -101,9 +102,56 @@ const SKILLS = [
   { name: "Framer Motion", level: 88 },
 ];
 
+const EXPERIENCES = [
+  {
+    id: 1,
+    period: "2022 – Present",
+    title: "Project Manager & Co-founder",
+    company: "Makeup Coders",
+    location: "Dhaka, Bangladesh",
+    description:
+      "Co-founded Makeup Coders; leading project delivery, product planning, and engineering processes.",
+    bullets: [
+      "Own end-to-end delivery for multiple SaaS and mobile products, from scope to release.",
+      "Lead a cross-functional team of developers, designers, and stakeholders with clear roadmaps and sprint rituals.",
+      "Define technical architecture for React, React Native & Node.js projects with scalability in mind.",
+      "Work directly with clients to translate business goals into realistic, shippable features.",
+    ],
+  },
+  {
+    id: 2,
+    period: "2019 – 2022",
+    title: "Full-Stack Developer (Freelance)",
+    company: "Remote Clients",
+    location: "Global",
+    description:
+      "Built custom web and mobile solutions for startups and small businesses around the world.",
+    bullets: [
+      "Delivered React / Next.js web apps and React Native mobile apps for different industries.",
+      "Integrated REST & GraphQL APIs, payment gateways, and third-party services.",
+      "Set up CI/CD pipelines, deployment workflows, and basic monitoring for client projects.",
+    ],
+  },
+  {
+    id: 3,
+    period: "2017 – 2019",
+    title: "Software Engineer",
+    company: "Previous Company",
+    location: "Bangladesh",
+    description:
+      "Worked as a core engineer in a small product team, shipping features in tight deadlines.",
+    bullets: [
+      "Implemented reusable UI components and internal tools to speed up development.",
+      "Collaborated with product and design to refine requirements and improve UX.",
+      "Maintained legacy codebases while gradually refactoring into modern stacks.",
+    ],
+  },
+];
+
 const NAV_ITEMS: NavItem[] = [
   { label: "Home", id: "hero", icon: Smartphone },
   { label: "Work", id: "work", icon: Layers },
+  { label: "Experience", id: "experience", icon: Briefcase },
   { label: "About", id: "about", icon: Sparkles },
   { label: "Play", id: "playground", icon: Zap },
 ];
@@ -454,6 +502,126 @@ export default function App() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- EXPERIENCE SECTION --- */}
+      <section
+        id="experience"
+        className="py-24 relative bg-white/5 dark:bg-black/20 backdrop-blur-sm"
+      >
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mb-12"
+          >
+            <p className="inline-flex items-center px-4 py-1 rounded-full bg-brand-purple/10 text-brand-purple text-xs font-semibold tracking-wide border border-brand-purple/20 mb-4">
+              <Briefcase className="w-4 h-4 mr-2" />
+              Professional Journey
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+              Experience that actually shipped products.
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
+              From co-founding Makeup Coders to managing teams and shipping
+              production apps — here&apos;s the story behind the work.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-[0.35fr,1.65fr] gap-12 items-start">
+            {/* Left side summary card */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/80 dark:bg-gray-900/70 border border-white/20 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur-xl"
+            >
+              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                Why work with me?
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                I combine{" "}
+                <span className="font-semibold">product thinking</span> with{" "}
+                <span className="font-semibold">engineering discipline</span>.
+                That means I don&apos;t just write components — I think in
+                systems, roadmaps, and real business outcomes.
+              </p>
+
+              <ul className="mt-5 space-y-3 text-sm text-gray-700 dark:text-gray-300">
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-purple" />
+                  Strong background in planning, building, and shipping
+                  cross-platform products.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+                  Comfortable wearing multiple hats: PM, Tech Lead, and hands-on
+                  developer.
+                </li>
+                <li className="flex gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-pink" />
+                  Experience working with founders, stakeholders, and global
+                  clients.
+                </li>
+              </ul>
+            </motion.div>
+
+            {/* Right side timeline */}
+            <div className="relative">
+              {/* Vertical line */}
+              <div className="absolute left-3 md:left-4 top-0 bottom-0 w-px bg-gradient-to-b from-brand-purple/40 via-brand-cyan/30 to-brand-pink/40 pointer-events-none" />
+
+              <div className="space-y-10">
+                {EXPERIENCES.map((exp, index) => (
+                  <motion.article
+                    key={exp.id}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    className="relative pl-10 md:pl-12"
+                  >
+                    {/* Timeline dot */}
+                    <div className="absolute left-0 md:left-1 top-2 w-5 h-5 rounded-full bg-black/80 dark:bg-white/10 border border-white/60 flex items-center justify-center shadow-lg">
+                      <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-brand-purple via-brand-pink to-brand-cyan" />
+                    </div>
+
+                    <div className="group bg-white/90 dark:bg-gray-900/80 rounded-3xl border border-gray-100/70 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 md:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <span className="text-xs font-mono uppercase tracking-[0.18em] text-brand-purple/80">
+                          {exp.period}
+                        </span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {exp.location}
+                        </span>
+                      </div>
+
+                      <h3 className="text-lg md:text-xl font-semibold flex flex-wrap items-center gap-2 mb-1">
+                        {exp.title}
+                        <span className="inline-flex items-center rounded-full border border-brand-purple/30 text-[11px] px-3 py-0.5 text-brand-purple bg-brand-purple/5">
+                          {exp.company}
+                        </span>
+                      </h3>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                        {exp.description}
+                      </p>
+
+                      <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+                        {exp.bullets.map((point, i) => (
+                          <li key={i} className="flex gap-2">
+                            <span className="mt-[7px] h-1 w-3 rounded-full bg-gradient-to-r from-brand-purple via-brand-cyan to-brand-pink" />
+                            <span>{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
