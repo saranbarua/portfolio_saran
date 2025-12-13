@@ -120,18 +120,20 @@ const EXPERIENCES = [
   },
   {
     id: 2,
-    period: "2019 – 2022",
-    title: "Full-Stack Developer (Freelance)",
-    company: "Remote Clients",
-    location: "Global",
+    period: "Oct 2022 – Oct 2023",
+    title: "Mobile Application Developer (Part-time)",
+    company: "Code Optimizer",
+    location: "Remote · Upwork",
     description:
-      "Built custom web and mobile solutions for startups and small businesses around the world.",
+      "Worked remotely with Code Optimizer to build and optimize high-performance cross-platform mobile experiences using React Native.",
     bullets: [
-      "Delivered React / Next.js web apps and React Native mobile apps for different industries.",
-      "Integrated REST & GraphQL APIs, payment gateways, and third-party services.",
-      "Set up CI/CD pipelines, deployment workflows, and basic monitoring for client projects.",
+      "Developed and optimized React Native applications for both iOS and Android platforms.",
+      "Implemented modern UI components, smooth navigation flows, and performance-focused animations.",
+      "Integrated REST APIs and managed client-side state across complex mobile modules.",
+      "Collaborated directly with Upwork clients, delivering features on time with strong attention to UX.",
     ],
   },
+
   {
     id: 3,
     period: "2017 – 2019",
