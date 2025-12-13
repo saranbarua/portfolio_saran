@@ -106,9 +106,9 @@ const EXPERIENCES = [
   {
     id: 1,
     period: "2022 – Present",
-    title: "Project Manager & Co-founder",
+    title: "Chief Technology Officer  & Co-founder",
     company: "Makeup Coders",
-    location: "Dhaka, Bangladesh",
+    location: "Chattogram, Bangladesh",
     description:
       "Co-founded Makeup Coders; leading project delivery, product planning, and engineering processes.",
     bullets: [
