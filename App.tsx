@@ -133,19 +133,64 @@ const EXPERIENCES = [
       "Collaborated directly with Upwork clients, delivering features on time with strong attention to UX.",
     ],
   },
-
   {
     id: 3,
-    period: "2017 – 2019",
-    title: "Software Engineer",
-    company: "Previous Company",
-    location: "Bangladesh",
+    period: "May 2022 – Sep 2022",
+    title: "Backend Developer Intern",
+    company: "Institute of Global Professionals (IGP)",
+    location: "Chattogram, Bangladesh",
     description:
-      "Worked as a core engineer in a small product team, shipping features in tight deadlines.",
+      "Contributed to one of Bangladesh’s leading educational management platforms by building backend features and supporting full project cycles.",
     bullets: [
-      "Implemented reusable UI components and internal tools to speed up development.",
-      "Collaborated with product and design to refine requirements and improve UX.",
-      "Maintained legacy codebases while gradually refactoring into modern stacks.",
+      "Developed and maintained backend modules using Node.js, HTML, CSS, and modern JS.",
+      "Collaborated with a passionate engineering team to deliver scalable and efficient features.",
+      "Participated in requirement analysis, sprint planning, and deployment workflows.",
+      "Enhanced problem-solving and version control skills through real-world project challenges.",
+    ],
+  },
+
+  {
+    id: 4,
+    period: "Feb 2020 – May 2022",
+    title: "Web Designer",
+    company: "SoftSource",
+    location: "Chattogram, Bangladesh · Hybrid",
+    description:
+      "Designed and developed visually appealing, user-friendly websites and interfaces in one of my earliest professional roles.",
+    bullets: [
+      "Created responsive layouts using HTML, CSS, Bootstrap, and JavaScript.",
+      "Improved UI/UX by applying modern design principles and usability best practices.",
+      "Worked closely with clients and internal teams to translate design requirements into functional interfaces.",
+    ],
+  },
+
+  {
+    id: 5,
+    period: "Feb 2022 – Apr 2022",
+    title: "Web Development Trainee (Internship)",
+    company: "SEIP",
+    location: "Chattogram, Bangladesh",
+    description:
+      "Completed an intensive internship under SEIP focused on practical web development, structured learning, and hands-on project execution.",
+    bullets: [
+      "Strengthened foundational skills in Laravel, PHP, and full-stack development workflows.",
+      "Worked on guided modules that connected learning with real project scenarios.",
+      "Gained confidence working with new tools, processes, and collaborative environments.",
+    ],
+  },
+
+  {
+    id: 6,
+    period: "Feb 2019 – Jan 2020",
+    title: "Marketing Executive",
+    company: "MidDayDreams",
+    location: "Chattogram, Bangladesh",
+    description:
+      "Executed marketing strategies and digital campaigns to increase brand visibility and audience engagement.",
+    bullets: [
+      "Developed and executed targeted marketing campaigns.",
+      "Managed social media channels and produced engaging content.",
+      "Analyzed campaign metrics to refine strategies and improve performance.",
     ],
   },
 ];
