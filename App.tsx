@@ -229,7 +229,11 @@ ${formData.message}
     `);
 
     // 👉 YOUR PERSONAL EMAIL HERE
-    window.location.href = `mailto:saranbarua2357@email.com?subject=${subject}&body=${body}`;
+    // window.location.href = `mailto:saranbarua2357@email.com?subject=${subject}&body=${body}`;
+    window.open(
+      `mailto:saranbarua2357@email.com?subject=${subject}&body=${body}`,
+      "_self"
+    );
   };
 
   return (
@@ -886,7 +890,20 @@ export default function App() {
                     </a>
                   </div>
                 </div>
-
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-cyan" />
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Phone Number
+                    </p>
+                    <a
+                      className="font-semibold hover:text-brand-cyan transition-colors"
+                      href="+8801690150490"
+                    >
+                      +8801690150490
+                    </a>
+                  </div>
+                </div>
                 <div className="flex items-start gap-3">
                   <span className="mt-1 h-2 w-2 rounded-full bg-brand-pink" />
                   <div>
