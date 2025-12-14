@@ -26,7 +26,6 @@ import {
   Briefcase,
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
-import { ProjectCard } from "./components/ProjectCard";
 import { Project, NavItem } from "./types";
 
 // --- DATA ---
@@ -200,8 +199,94 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Work", id: "work", icon: Layers },
   { label: "Experience", id: "experience", icon: Briefcase },
   { label: "About", id: "about", icon: Sparkles },
-  { label: "Play", id: "playground", icon: Zap },
+  { label: "Contact", id: "contact", icon: Mail },
 ];
+
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const subject = encodeURIComponent(`New Contact from ${formData.name}`);
+
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}
+    `);
+
+    // 👉 YOUR PERSONAL EMAIL HERE
+    window.location.href = `mailto:saranbarua2357@email.com?subject=${subject}&body=${body}`;
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: 30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      className="bg-white/80 dark:bg-gray-900/70 border border-white/20 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur-xl"
+    >
+      <h3 className="text-xl font-semibold mb-6">Send a message</h3>
+
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="grid sm:grid-cols-2 gap-4">
+          <input
+            name="name"
+            required
+            onChange={handleChange}
+            placeholder="Your name"
+            className="px-4 py-3 rounded-2xl bg-white/60 dark:bg-black/20 border border-white/20 dark:border-white/10 outline-none focus:ring-2 focus:ring-brand-purple/40"
+          />
+
+          <input
+            name="email"
+            type="email"
+            required
+            onChange={handleChange}
+            placeholder="you@email.com"
+            className="px-4 py-3 rounded-2xl bg-white/60 dark:bg-black/20 border border-white/20 dark:border-white/10 outline-none focus:ring-2 focus:ring-brand-purple/40"
+          />
+        </div>
+
+        <input
+          name="phone"
+          onChange={handleChange}
+          placeholder="+880..."
+          className="w-full px-4 py-3 rounded-2xl bg-white/60 dark:bg-black/20 border border-white/20 dark:border-white/10 outline-none focus:ring-2 focus:ring-brand-purple/40"
+        />
+
+        <textarea
+          name="message"
+          required
+          rows={5}
+          onChange={handleChange}
+          placeholder="Tell me about your project..."
+          className="w-full px-4 py-3 rounded-2xl bg-white/60 dark:bg-black/20 border border-white/20 dark:border-white/10 outline-none focus:ring-2 focus:ring-brand-purple/40"
+        />
+
+        <button
+          type="submit"
+          className="w-full px-6 py-4 rounded-2xl bg-brand-purple text-white font-bold text-lg transition-transform active:scale-95"
+        >
+          Send Message
+        </button>
+      </form>
+    </motion.div>
+  );
+};
 
 export default function App() {
   // --- STATE ---
@@ -736,19 +821,105 @@ export default function App() {
         </div>
       </section>
 
-      {/* --- PLAYGROUND SECTION --- */}
-      <section id="playground" className="py-24 relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center z-10 relative">
-          <h2 className="text-4xl md:text-6xl font-bold font-display mb-6">
-            Creative Playground
-          </h2>
-          <p className="mb-12 text-gray-500">
-            Say "Purple", "Cyan", or "Pink" to change the orb color (Web Speech
-            API)
-          </p>
+      {/* --- CONTACT SECTION --- */}
+      <section
+        id="contact"
+        className="py-24 relative bg-white/5 dark:bg-black/20 backdrop-blur-sm"
+      >
+        <div className="container mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mb-12"
+          >
+            <p className="inline-flex items-center px-4 py-1 rounded-full bg-brand-purple/10 text-brand-purple text-xs font-semibold tracking-wide border border-brand-purple/20 mb-4">
+              <Mail className="w-4 h-4 mr-2" />
+              Contact
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold font-display mb-4">
+              Let’s talk about your next product.
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-lg">
+              Send me a message — I reply fast for serious work and
+              collaborations.
+            </p>
+          </motion.div>
 
-          <div className="h-[400px] w-full max-w-3xl mx-auto bg-gray-900 rounded-3xl relative overflow-hidden border border-white/10 flex items-center justify-center">
-            <InteractiveOrb />
+          <div className="grid md:grid-cols-2 gap-10 items-start">
+            {/* Left: Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/80 dark:bg-gray-900/70 border border-white/20 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur-xl"
+            >
+              <h3 className="text-xl font-semibold mb-6">Reach me directly</h3>
+
+              <div className="space-y-4 text-sm">
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-purple" />
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Personal Email
+                    </p>
+                    <a
+                      className="font-semibold hover:text-brand-purple transition-colors"
+                      href="mailto:saranbarua2357@email.com"
+                    >
+                      saranbarua2357@email.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-cyan" />
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Company Email
+                    </p>
+                    <a
+                      className="font-semibold hover:text-brand-cyan transition-colors"
+                      href="mailto:saran@makeupcoders.com"
+                    >
+                      saran@makeupcoders.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-pink" />
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400">Location</p>
+                    <p className="font-semibold">Chattogram, Bangladesh</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex gap-4">
+                <a
+                  href="https://github.com/saranbarua"
+                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  <Github size={18} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/saran-barua/"
+                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  <Linkedin size={18} />
+                </a>
+                <a
+                  href="https://www.facebook.com/saran.barua.98/"
+                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  <Facebook size={18} />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right: Form */}
+            <ContactForm />
           </div>
         </div>
       </section>
