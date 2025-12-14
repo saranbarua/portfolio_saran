@@ -3,7 +3,6 @@ import {
   motion,
   AnimatePresence,
   useScroll,
-  useTransform,
   useMotionValue,
 } from "framer-motion";
 import {
@@ -11,9 +10,7 @@ import {
   X,
   Sun,
   Moon,
-  Zap,
   Smartphone,
-  Code,
   Github,
   Twitter,
   Linkedin,
