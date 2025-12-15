@@ -897,7 +897,21 @@ export default function App() {
                       className="font-semibold hover:text-brand-cyan transition-colors"
                       href="+8801690150490"
                     >
-                      +8801690150490
+                      +880-1690150490
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-green" />
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400">
+                      Whats App
+                    </p>
+                    <a
+                      className="font-semibold hover:text-brand-green transition-colors"
+                      href="+8801746180243"
+                    >
+                      +880-1746180243
                     </a>
                   </div>
                 </div>
