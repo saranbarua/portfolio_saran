@@ -1,17 +1,5 @@
 import { LucideIcon } from "lucide-react";
 
-export interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  downloads: string;
-  rating: number;
-  image: string;
-  color: string;
-  tags: string[];
-}
-
 export interface Skill {
   name: string;
   level: number;
@@ -22,4 +10,27 @@ export interface NavItem {
   label: string;
   id: string;
   icon: LucideIcon;
+}
+
+// types.ts
+export type ProjectType = "app" | "web";
+
+export interface Project {
+  id: number;
+  type: ProjectType; // ✅ app / web
+  title: string;
+  description: string;
+  technologies: string[]; // ✅ technology used
+  image: string; // local/remote
+  color: string;
+
+  // ✅ Only for app
+  metric?: {
+    label: "Downloads" | "Users";
+    value: string; // "12k+"
+  };
+
+  // optional links
+  liveUrl?: string;
+  repoUrl?: string;
 }

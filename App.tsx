@@ -24,68 +24,100 @@ import {
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { Project, NavItem } from "./types";
+import { IMAGES } from "./components/assets/Images";
 
 // --- DATA ---
 const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "VibeCheck",
-    category: "Social",
+    type: "app",
+    title: "11Pets",
     description:
-      "A real-time mood sharing platform built with React Native and Supabase. Features live geofencing, haptic feedbacks, and instant messaging.",
-    downloads: "12k+",
-    rating: 4.8,
-    image: "https://picsum.photos/200/200?random=1",
+      "The 11pets app makes it possible to share information and work collaboratively with pet care providers in order to give your pets the highest quality care",
+    technologies: ["React Native", "TypeScript", "Supabase"],
+    metric: { label: "Downloads", value: "500k+" },
+    image: IMAGES.pets11,
     color: "from-purple-600 to-indigo-600",
-    tags: ["React Native", "Expo", "Supabase"],
   },
   {
     id: 2,
-    title: "ZenFit",
-    category: "Health",
+    type: "app",
+    title: "Mayani",
     description:
-      "AI-powered workout generator. Uses camera vision to correct posture in real-time. Integrated with HealthKit.",
-    downloads: "50k+",
-    rating: 4.9,
-    image: "https://picsum.photos/200/200?random=2",
-    color: "from-cyan-500 to-teal-500",
-    tags: ["TensorFlow.js", "React Native", "HealthKit"],
+      "A retailer app that manages sales, collections, cost calculations, delivery orders, and marketer performance data in one centralized dashboard.",
+    technologies: ["React Native", "Expo", "Node JS"],
+    metric: { label: "Users", value: "100+" },
+    image: IMAGES.Retailer,
+    color: "from-green-500 to-teal-500",
   },
+
   {
     id: 3,
-    title: "CryptoDash",
-    category: "Finance",
+    type: "app",
+    title: "Tscore",
     description:
-      "High-performance crypto portfolio tracker with heavy skia-based charting and real-time websocket updates.",
-    downloads: "8k+",
-    rating: 4.6,
-    image: "https://picsum.photos/200/200?random=3",
-    color: "from-orange-500 to-red-500",
-    tags: ["Skia", "Reanimated", "WebSockets"],
+      "T Score cricket app  is a popular live cricket score and stats app.",
+    technologies: ["React Native", "TensorFlow.js"],
+    metric: { label: "Users", value: "100+" },
+    image: IMAGES.Tscore,
+    color: "from-orange-500 to-teal-500",
   },
   {
     id: 4,
-    title: "Foodie",
-    category: "Lifestyle",
+    type: "app",
+    title: "Logistaras",
     description:
-      "Restaurant discovery app with AR menus. Point your phone at a restaurant to see 3D floating dishes.",
-    downloads: "25k+",
-    rating: 4.7,
-    image: "https://picsum.photos/200/200?random=4",
-    color: "from-pink-500 to-rose-500",
-    tags: ["ViroReact", "GraphQL", "Node.js"],
+      "Logistaras is a service application that aims to help those in self-employment manage their finances and keep track of their tax responsibilities.",
+    technologies: ["React Native", "TensorFlow.js"],
+    metric: { label: "Users", value: "100+" },
+    image: IMAGES.logistaras,
+    color: "from-cyan-500 to-teal-500",
   },
   {
     id: 5,
-    title: "Foodie",
-    category: "Lifestyle",
+    type: "app",
+    title: "Somiti Management App",
     description:
-      "Restaurant discovery app with AR menus. Point your phone at a restaurant to see 3D floating dishes.",
-    downloads: "25k+",
-    rating: 4.7,
-    image: "https://picsum.photos/200/200?random=4",
-    color: "from-pink-500 to-rose-500",
-    tags: ["ViroReact", "GraphQL", "Node.js"],
+      "A management application for handling member records, collections, expenses, and financial reporting for a local somiti in Chattogram.",
+    technologies: ["React Native", "Expo", "Firebase"],
+    metric: { label: "Users", value: "100+" },
+    image: IMAGES.somiti,
+    color: "from-green-500 to-teal-500",
+  },
+  {
+    id: 6,
+    type: "app",
+    title: "Turf Management App",
+    description:
+      "A turf management app to streamline bookings, payments, and customer management for local sports turfs.",
+    technologies: ["React Native", "Expo", "Node Js"],
+    metric: { label: "Users", value: "100+" },
+    image: IMAGES.Turf,
+    color: "from-green-500 to-teal-500",
+  },
+
+  {
+    id: 8,
+    type: "web",
+    title: "SmartBrief Web",
+    description:
+      "AI-powered content summarization dashboard with roles, credits, and history.",
+    technologies: ["React", "TypeScript", "Node.js"],
+    image: "https://picsum.photos/400/400?random=3",
+    color: "from-orange-500 to-red-500",
+    liveUrl: "https://example.com",
+    repoUrl: "https://github.com/example",
+  },
+  {
+    id: 9,
+    type: "web",
+    title: "11Pets",
+    description:
+      "A real-time mood sharing platform with geofencing, haptics, and instant messaging.",
+    technologies: ["React Native", "Expo", "Supabase"],
+    metric: { label: "Downloads", value: "12k+" },
+    image: IMAGES.pets11,
+    color: "from-purple-600 to-indigo-600",
   },
 ];
 
@@ -372,6 +404,8 @@ export default function App() {
   };
 
   // --- RENDER HELPERS ---
+  const appProjects = PROJECTS.filter((p) => p.type === "app");
+  const webProjects = PROJECTS.filter((p) => p.type === "web");
 
   return (
     <div
@@ -604,38 +638,131 @@ export default function App() {
         </div>
 
         {/* Horizontal Scroll Area */}
-        <div className="w-full overflow-x-auto no-scrollbar pb-20 pl-6 md:pl-[max(2rem,calc((100vw-1200px)/2))]">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {PROJECTS.map((project, index) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="max-w-xs mx-auto"
+        {/* --- APP PROJECTS --- */}
+        <div className="container mx-auto px-6 mb-10">
+          <h3 className="text-2xl font-bold mb-2">Apps</h3>
+          <p className="text-gray-500">Mobile apps with real usage metrics.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 px-3 mb-16">
+          {appProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className=" mx-auto"
+            >
+              <div
+                className={`bg-gradient-to-r ${project.color} rounded-2xl p-3`}
               >
-                <div
-                  className={`bg-gradient-to-r ${project.color} rounded-lg shadow-lg p-6 cursor-pointer relative overflow-hidden transition-transform hover:scale-105 hover:shadow-xl`}
-                >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover rounded-lg mb-4"
-                  />
-                  <h3 className="text-xl font-semibold text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-white text-sm mb-4">
-                    {project.description}
-                  </p>
-                  <span className="text-white text-sm">
-                    {project.downloads} downloads
-                  </span>
-                  <div className="absolute top-0 left-0 right-0 bottom-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain rounded-xl mb-4"
+                />
+
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-white/90 text-sm mb-4">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-full bg-white/15 text-white"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Downloads/Users */}
+                {project.metric && (
+                  <div className="text-white text-sm font-semibold">
+                    {project.metric.value} {project.metric.label}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* --- WEB PROJECTS --- */}
+        <div className="container mx-auto px-6 mb-10">
+          <h3 className="text-2xl font-bold mb-2">Web</h3>
+          <p className="text-gray-500">Web products and dashboards.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+          {webProjects.map((project, index) => (
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              className="max-w-xs mx-auto"
+            >
+              <div
+                className={`bg-gradient-to-r ${project.color} rounded-2xl p-6`}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover rounded-xl mb-4"
+                />
+
+                <h3 className="text-xl font-semibold text-white mb-2">
+                  {project.title}
+                </h3>
+
+                <p className="text-white/90 text-sm mb-4">
+                  {project.description}
+                </p>
+
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-full bg-white/15 text-white"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Links */}
+                <div className="flex gap-3">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-white underline"
+                    >
+                      Live
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-sm font-semibold text-white underline"
+                    >
+                      Repo
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
