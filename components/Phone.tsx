@@ -1,5 +1,6 @@
 import React from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
+import { IMAGES } from "./assets/Images";
 
 interface PhoneProps {
   mouseX: any;
@@ -74,7 +75,7 @@ export const PhoneScreenContent = () => {
           {/* Picture Overlay */}
           <div className="absolute w-28 h-28 rounded-full border-4 border-white top-10 flex items-center justify-center bg-gray-800">
             <img
-              src={"/components/assets/Dp.jpeg"}
+              src={IMAGES.DP}
               alt="Your Picture"
               className="w-24 h-24 rounded-full object-cover"
             />

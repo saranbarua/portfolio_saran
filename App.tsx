@@ -949,7 +949,7 @@ export default function App() {
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500 border border-gray-100 dark:border-white/5">
               <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-purple to-brand-cyan mb-6 overflow-hidden">
                 <img
-                  src="./components/assets/dp1.jpg"
+                  src={IMAGES.dp1}
                   alt="Avatar"
                   className="w-full h-full object-cover mix-blend-overlay opacity-80"
                 />
