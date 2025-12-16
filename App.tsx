@@ -25,6 +25,7 @@ import {
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { Project, NavItem } from "./types";
 import { IMAGES } from "./components/assets/Images";
+import LeadershipCreativeWork from "./components/LeadershipCreativeWork";
 
 // --- DATA ---
 const PROJECTS: Project[] = [
@@ -271,6 +272,8 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Work", id: "work", icon: Layers },
   { label: "Experience", id: "experience", icon: Briefcase },
   { label: "About", id: "about", icon: Sparkles },
+  { label: "Creative", id: "creative", icon: Sparkles },
+
   { label: "Contact", id: "contact", icon: Mail },
 ];
 
@@ -927,6 +930,9 @@ export default function App() {
             </div>
           </div>
         </div>
+      </section>
+      <section id="creative">
+        <LeadershipCreativeWork />
       </section>
 
       {/* --- ABOUT & SKILLS SECTION --- */}
