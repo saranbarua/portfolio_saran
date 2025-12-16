@@ -97,27 +97,70 @@ const PROJECTS: Project[] = [
   },
 
   {
+    id: 7,
+    type: "web",
+    title: "Mytrams",
+    description:
+      "MYTRAMS is a comprehensive travel agency management system that automates and centralizes daily operations for travel businesses.It manages ticketing, visa, hotel and holiday bookings, finance, refunds, reporting, and role-based access to ensure efficient and scalable operations.",
+    technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
+    image: IMAGES.mytrams,
+    color: "from-orange-500 to-red-500",
+    liveUrl: "https://mytrams.com/",
+  },
+  {
     id: 8,
     type: "web",
-    title: "SmartBrief Web",
+    title: "Nested Matrix",
     description:
-      "AI-powered content summarization dashboard with roles, credits, and history.",
-    technologies: ["React", "TypeScript", "Node.js"],
-    image: "https://picsum.photos/400/400?random=3",
-    color: "from-orange-500 to-red-500",
-    liveUrl: "https://example.com",
-    repoUrl: "https://github.com/example",
+      "Nested Matrix is a restaurant automation system designed to streamline daily operations and improve efficiency.It manages orders, billing,inventory, staff workflows, and sales reporting—helping restaurants operate faster, smarter, and more accurately.",
+    technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
+    image: IMAGES.Nested,
+    color: "from-purple-600 to-indigo-600",
+    liveUrl: "https://nested-matrix.vercel.app/",
   },
   {
     id: 9,
     type: "web",
-    title: "11Pets",
+    title: "Visamind",
     description:
-      "A real-time mood sharing platform with geofencing, haptics, and instant messaging.",
-    technologies: ["React Native", "Expo", "Supabase"],
-    metric: { label: "Downloads", value: "12k+" },
-    image: IMAGES.pets11,
-    color: "from-purple-600 to-indigo-600",
+      "VisaMind is a visa management system designed to simplify and organize visa processing workflows.It handles applicant data, document tracking, status updates, and reporting—helping agencies manage visas efficiently and accurately.",
+    technologies: ["Next Js", "MongoDB", "Node.js"],
+    image: IMAGES.visamind,
+    color: "from-cyan-600 to-indigo-600",
+    liveUrl: "https://nested-matrix.vercel.app/",
+  },
+  {
+    id: 10,
+    type: "web",
+    title: "Nested Matrix",
+    description:
+      "Nested Matrix is a restaurant automation system designed to streamline daily operations and improve efficiency.It manages orders, billing,inventory, staff workflows, and sales reporting—helping restaurants operate faster, smarter, and more accurately.",
+    technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
+    image: IMAGES.Nested,
+    color: "from-green-600 to-indigo-600",
+    liveUrl: "https://nested-matrix.vercel.app/",
+  },
+  {
+    id: 11,
+    type: "web",
+    title: "Nested Matrix",
+    description:
+      "Nested Matrix is a restaurant automation system designed to streamline daily operations and improve efficiency.It manages orders, billing,inventory, staff workflows, and sales reporting—helping restaurants operate faster, smarter, and more accurately.",
+    technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
+    image: IMAGES.Nested,
+    color: "from-pink-600 to-indigo-600",
+    liveUrl: "https://nested-matrix.vercel.app/",
+  },
+  {
+    id: 12,
+    type: "web",
+    title: "Nested Matrix",
+    description:
+      "Nested Matrix is a restaurant automation system designed to streamline daily operations and improve efficiency.It manages orders, billing,inventory, staff workflows, and sales reporting—helping restaurants operate faster, smarter, and more accurately.",
+    technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
+    image: IMAGES.Nested,
+    color: "from-red-600 to-indigo-600",
+    liveUrl: "https://nested-matrix.vercel.app/",
   },
 ];
 
@@ -699,14 +742,14 @@ export default function App() {
           <p className="text-gray-500">Web products and dashboards.</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 px-3 mb-16">
           {webProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="max-w-xs mx-auto"
+              className="mx-auto"
             >
               <div
                 className={`bg-gradient-to-r ${project.color} rounded-2xl p-6`}
@@ -714,7 +757,7 @@ export default function App() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover rounded-xl mb-4"
+                  className="w-full h-full object-contain rounded-xl mb-4"
                 />
 
                 <h3 className="text-xl font-semibold text-white mb-2">
