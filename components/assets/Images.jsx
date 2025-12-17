@@ -12,6 +12,10 @@ import Tramedi from "../assets/Tramedi.PNG";
 import travilion from "../assets/travilion.png";
 import mytrams from "../assets/Mytrams.jfif";
 import visamind from "../assets/visamind.png";
+import leadershipImg from "../assets/Leadership.jpeg";
+import anchoringImg from "../assets/Anchoring.jpeg";
+import singingImg from "../assets/Singing.jpeg";
+// import DP from "../assets/Dp.jpeg";
 
 export const IMAGES = {
   dp1,
@@ -28,4 +32,7 @@ export const IMAGES = {
   visamind,
   Tscore,
   Turf,
+  leadershipImg,
+  anchoringImg,
+  singingImg,
 };

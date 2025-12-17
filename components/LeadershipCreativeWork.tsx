@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
   Sparkles,
 } from "lucide-react";
+import { IMAGES } from "./assets/Images";
 
 type LinkItem = { label: string; href: string };
 type CardItem = {
@@ -15,7 +16,8 @@ type CardItem = {
   subtitle: string;
   points: string[];
   icon: React.ElementType;
-  accent: string; // tailwind gradient
+  accent: string;
+  image: string; // 👈 NEW
   links?: LinkItem[];
 };
 
@@ -29,8 +31,8 @@ const CARDS: CardItem[] = [
       "Communicate with clients and stakeholders clearly",
     ],
     icon: Crown,
+    image: IMAGES.leadershipImg,
     accent: "from-brand-purple/35 via-brand-pink/25 to-brand-cyan/25",
-    links: [{ label: "Leadership Notes", href: "https://example.com" }],
   },
   {
     title: "Anchoring",
@@ -41,10 +43,8 @@ const CARDS: CardItem[] = [
       "Strong voice + presence for professional delivery",
     ],
     icon: Mic,
+    image: IMAGES.anchoringImg,
     accent: "from-brand-cyan/35 via-brand-purple/20 to-white/10",
-    links: [
-      // { label: "Showreel", href: "https://example.com" },
-    ],
   },
   {
     title: "Singing",
@@ -55,10 +55,8 @@ const CARDS: CardItem[] = [
       "Adds creativity and balance to problem-solving",
     ],
     icon: Music2,
+    image: IMAGES.singingImg,
     accent: "from-brand-pink/35 via-brand-purple/20 to-white/10",
-    links: [
-      // { label: "Performance Clips", href: "https://example.com" },
-    ],
   },
   {
     title: "Writing",
@@ -69,10 +67,10 @@ const CARDS: CardItem[] = [
       "Structure thoughts into clear frameworks",
     ],
     icon: PenLine,
+    image: IMAGES.leadershipImg,
+
+    // image: writingImg,
     accent: "from-white/10 via-brand-purple/20 to-brand-cyan/25",
-    links: [
-      // { label: "Articles", href: "https://example.com" },
-    ],
   },
 ];
 
@@ -245,6 +243,16 @@ export default function LeadershipCreativeWork() {
                   <div
                     className={`absolute -top-24 -right-24 w-64 h-64 rounded-full bg-gradient-to-br ${c.accent} blur-[40px] opacity-80 group-hover:opacity-100 transition-opacity`}
                   />
+                  {/* Image header */}
+                  <div className="relative mb-5 h-40 w-full overflow-hidden rounded-2xl">
+                    <img
+                      src={c.image}
+                      alt={c.title}
+                      className="h-full w-full object-cover scale-105 transition-transform duration-700 group-hover:scale-110"
+                    />
+                    {/* soft overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                  </div>
 
                   <div className="relative">
                     <div className="flex items-center justify-between mb-4">
