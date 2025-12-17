@@ -4,9 +4,9 @@ import {
   Crown,
   Mic,
   Music2,
-  PenLine,
   ArrowUpRight,
   Sparkles,
+  Camera,
 } from "lucide-react";
 import { IMAGES } from "./assets/Images";
 
@@ -18,6 +18,7 @@ type CardItem = {
   icon: React.ElementType;
   accent: string;
   image: string; // 👈 NEW
+  gallery?: string[];
   links?: LinkItem[];
 };
 
@@ -59,18 +60,22 @@ const CARDS: CardItem[] = [
     accent: "from-brand-pink/35 via-brand-purple/20 to-white/10",
   },
   {
-    title: "Writing",
-    subtitle: "Make complex ideas simple and actionable",
-    points: [
-      "Write product stories, scripts, and documentation",
-      "Explain technical topics in human language",
-      "Structure thoughts into clear frameworks",
+    title: "Photography",
+    subtitle: "Visual storytelling through the lens",
+    points: [],
+    icon: Camera,
+    image: IMAGES.photoHero,
+    gallery: [
+      IMAGES.p1,
+      IMAGES.p2,
+      IMAGES.p3,
+      IMAGES.p4,
+      IMAGES.p5,
+      IMAGES.p6,
+      IMAGES.p7,
+      IMAGES.p8,
     ],
-    icon: PenLine,
-    image: IMAGES.leadershipImg,
-
-    // image: writingImg,
-    accent: "from-white/10 via-brand-purple/20 to-brand-cyan/25",
+    accent: "from-brand-pink/35 via-brand-purple/20 to-white/10",
   },
 ];
 
@@ -89,6 +94,11 @@ const item = {
 };
 
 export default function LeadershipCreativeWork() {
+  const [lightbox, setLightbox] = React.useState<{
+    open: boolean;
+    items: string[];
+    index: number;
+  }>({ open: false, items: [], index: 0 });
   return (
     <section
       id="creative"
@@ -250,10 +260,10 @@ export default function LeadershipCreativeWork() {
                       alt={c.title}
                       className="h-full w-full object-cover scale-105 transition-transform duration-700 group-hover:scale-110"
                     />
+
                     {/* soft overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
                   </div>
-
                   <div className="relative">
                     <div className="flex items-center justify-between mb-4">
                       <div className="w-12 h-12 rounded-2xl bg-white/60 dark:bg-white/10 border border-white/20 dark:border-white/10 flex items-center justify-center">
@@ -296,6 +306,31 @@ export default function LeadershipCreativeWork() {
                       </div>
                     )}
                   </div>
+                  {/* Gallery thumbnails (Photography only) */}
+                  {c.gallery?.length ? (
+                    <div className="mb-5 grid grid-cols-4 gap-2">
+                      {c.gallery.slice(0, 8).map((img, idx) => (
+                        <button
+                          key={idx}
+                          onClick={() =>
+                            setLightbox({
+                              open: true,
+                              items: c.gallery!,
+                              index: idx,
+                            })
+                          }
+                          className="group/thumb relative overflow-hidden rounded-xl"
+                        >
+                          <img
+                            src={img}
+                            alt={`${c.title} ${idx + 1}`}
+                            className="h-14 w-full object-cover transition-transform duration-500 group-hover/thumb:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-black/10 opacity-0 group-hover/thumb:opacity-100 transition-opacity" />
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
 
                   {/* Hover shine */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
@@ -307,6 +342,59 @@ export default function LeadershipCreativeWork() {
           })}
         </motion.div>
       </div>
+      {lightbox.open && (
+        <div
+          className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+          onClick={() => setLightbox((s) => ({ ...s, open: false }))}
+        >
+          <button
+            className="absolute top-6 right-6 h-12 w-12 rounded-full bg-white/10 border border-white/20 text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((s) => ({ ...s, open: false }));
+            }}
+          >
+            ✕
+          </button>
+
+          <button
+            className="absolute left-6 md:left-10 h-12 w-12 rounded-full bg-white/10 border border-white/20 text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((s) => ({
+                ...s,
+                index: (s.index - 1 + s.items.length) % s.items.length,
+              }));
+            }}
+          >
+            ‹
+          </button>
+
+          <div
+            className="max-w-4xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={lightbox.items[lightbox.index]}
+              alt="Preview"
+              className="w-full max-h-[80vh] object-contain rounded-2xl"
+            />
+          </div>
+
+          <button
+            className="absolute right-6 md:right-10 h-12 w-12 rounded-full bg-white/10 border border-white/20 text-white"
+            onClick={(e) => {
+              e.stopPropagation();
+              setLightbox((s) => ({
+                ...s,
+                index: (s.index + 1) % s.items.length,
+              }));
+            }}
+          >
+            ›
+          </button>
+        </div>
+      )}
     </section>
   );
 }

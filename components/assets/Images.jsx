@@ -15,7 +15,15 @@ import visamind from "../assets/visamind.png";
 import leadershipImg from "../assets/Leadership.jpeg";
 import anchoringImg from "../assets/Anchoring.jpeg";
 import singingImg from "../assets/Singing.jpeg";
-// import DP from "../assets/Dp.jpeg";
+import photoHero from "../assets/photoHero.jpeg";
+import p1 from "../assets/p8.jpg.jpeg";
+import p2 from "../assets/p2.jpeg";
+import p3 from "../assets/p3.jpeg";
+import p4 from "../assets/p4.jpeg";
+import p5 from "../assets/p5.jpeg";
+import p6 from "../assets/p6.jpeg";
+import p7 from "../assets/p1.jpeg";
+import p8 from "../assets/p7.jpg.jpeg";
 
 export const IMAGES = {
   dp1,
@@ -35,4 +43,13 @@ export const IMAGES = {
   leadershipImg,
   anchoringImg,
   singingImg,
+  photoHero,
+  p1,
+  p2,
+  p3,
+  p4,
+  p5,
+  p6,
+  p7,
+  p8,
 };
