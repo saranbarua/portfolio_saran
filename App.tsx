@@ -857,6 +857,86 @@ export default function App() {
             </motion.div>
           ))}
         </div>
+        <div className="container mx-auto px-6 max-w-6xl">
+          <div className="mb-10">
+            <span
+              className="inline-flex items-center gap-2 rounded-full 
+        bg-black/5 dark:bg-white/10 
+        px-4 py-1 text-xs font-semibold tracking-wide"
+            >
+              Additional Work
+            </span>
+
+            <h3 className="mt-4 text-3xl font-display font-bold">
+              More projects I’ve built and shipped
+            </h3>
+
+            <p className="mt-2 text-gray-600 dark:text-gray-400">
+              Smaller systems, client work, and internal tools that solved real
+              problems.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {[
+              {
+                name: "MettaDhamma",
+                desc: "A spiritual learning & practice platform focused on Buddhist teachings, meditation, and mindful living.",
+                tech: "Web content & CMS (varied stack)",
+                url: "https://mettadhamma.com",
+              },
+              {
+                name: "Haque & Sons Engineering Technology",
+                desc: "A professional industrial solutions website for elevator and escalator services, showcasing products and maintenance offerings for commercial and residential clients.",
+                tech: "Static business site / Custom CMS (built as part of client/brand presence)",
+                url: "https://haquensons.com",
+              },
+              {
+                name: "InvoiceGenius",
+                desc: "A web-based invoice generation and management tool for small businesses and freelancers, enabling quick invoice creation, PDF export, and billing tracking.",
+                tech: "React • Tailwind • PDF generation",
+                url: "https://invoicegenius.makeupcoders.com/",
+              },
+              {
+                name: "Wanderwise",
+                desc: "A travel calculation and planning web app that helps users estimate routes, total costs, and logistical breakdowns for trips.",
+                tech: "React • Tailwind • Travel logic utilities",
+                url: "https://wanderwise.makeupcoders.com/",
+              },
+            ].map((p) => (
+              <div
+                key={p.name}
+                className="flex flex-col md:flex-row md:items-center md:justify-between
+          rounded-2xl border border-black/5 dark:border-white/10
+          bg-white/60 dark:bg-white/5 backdrop-blur
+          px-6 py-4 hover:shadow-md transition-all"
+              >
+                <div>
+                  <h4 className="font-semibold text-lg">{p.name}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xl">
+                    {p.desc}
+                  </p>
+                </div>
+
+                <div className="mt-2 md:mt-0 text-xs font-mono text-gray-500 dark:text-gray-400">
+                  {p.tech}
+                </div>
+                <a
+                  href="https://mettadhamma.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 px-4 py-2 whitespace-nowrap rounded-full
+             text-sm font-semibold text-brand-purple
+             bg-brand-purple/10 border border-brand-purple/20
+             hover:bg-brand-purple/20 transition-colors"
+                >
+                  Live Site
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* --- EXPERIENCE SECTION --- */}
@@ -1201,24 +1281,32 @@ export default function App() {
       {/* --- CONTACT/FOOTER --- */}
       <footer className="py-24 bg-brand-dark text-white relative">
         <div className="container mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="max-w-2xl mx-auto"
-          >
-            <h2 className="text-5xl font-bold font-display mb-8">
-              Let's build something amazing.
-            </h2>
-            <button
-              className="px-10 py-5 bg-white text-brand-dark rounded-full font-bold text-xl hover:scale-105 transition-transform shadow-[0_0_40px_rgba(255,255,255,0.3)]"
-              onClick={() => (window.location.href = "mailto:hello@saran.dev")}
-            >
-              Let's Talk
-            </button>
-          </motion.div>
+          <h2 className="text-5xl font-bold font-display mb-4">
+            Let's build something amazing.
+          </h2>
+
+          <p className="text-white/75 max-w-2xl mx-auto text-lg leading-relaxed mb-8">
+            I help founders ship React / React Native products fast — with clean
+            UI, solid architecture, and delivery discipline.
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {["React Native App", "Web Dashboard", "SaaS MVP"].map((t) => (
+              <span
+                key={t}
+                className="text-xs px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/90"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
           <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
-            <p>&copy; 2025 Saran Barua. All rights reserved.</p>
+            <p>
+              &copy; {new Date().getFullYear()} Saran Barua. All rights
+              reserved.
+            </p>
+
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
                 href="https://x.com/barua_saran"
