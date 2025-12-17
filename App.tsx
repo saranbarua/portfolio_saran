@@ -890,11 +890,21 @@ export default function App() {
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white/80 dark:bg-gray-900/70 border border-white/20 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur-xl"
+              className="relative overflow-hidden rounded-3xl border border-white/15 dark:border-white/10
+             bg-white/70 dark:bg-gray-950/40 shadow-2xl backdrop-blur-xl p-7 md:p-9"
             >
-              <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
+              {/* Ambient glow */}
+              <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-brand-purple/20 blur-[60px]" />
+              <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand-cyan/15 blur-[60px]" />
+
+              <p className="text-xs font-mono uppercase tracking-[0.22em] text-gray-400 mb-1">
+                Summary
+              </p>
+
+              <h3 className="text-xl font-semibold tracking-tight mb-3">
                 Why work with me?
               </h3>
+
               <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                 I combine{" "}
                 <span className="font-semibold">product thinking</span> with{" "}
@@ -937,11 +947,24 @@ export default function App() {
                     className="relative pl-10 md:pl-12"
                   >
                     {/* Timeline dot */}
-                    <div className="absolute left-0 md:left-1 top-2 w-5 h-5 rounded-full bg-black/80 dark:bg-white/10 border border-white/60 flex items-center justify-center shadow-lg">
+                    <div
+                      className="absolute left-0 md:left-1 top-2 w-5 h-5 rounded-full
+           bg-white/80 dark:bg-white/10
+           border border-black/10 dark:border-white/10
+           flex items-center justify-center shadow-lg"
+                    >
                       <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-brand-purple via-brand-pink to-brand-cyan" />
                     </div>
 
-                    <div className="group bg-white/90 dark:bg-gray-900/80 rounded-3xl border border-gray-100/70 dark:border-white/10 shadow-xl backdrop-blur-xl p-6 md:p-7 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+                    <div
+                      className="group relative overflow-hidden rounded-3xl
+           bg-white/85 dark:bg-gray-900/70
+           border border-black/5 dark:border-white/10
+           shadow-xl backdrop-blur-xl p-6 md:p-7
+           transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                    >
+                      <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-brand-pink/10 blur-[55px] opacity-0 group-hover:opacity-100 transition-opacity" />
+
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                         <span className="text-xs font-mono uppercase tracking-[0.18em] text-brand-purple/80">
                           {exp.period}
