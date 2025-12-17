@@ -119,31 +119,105 @@ export default function LeadershipCreativeWork() {
           </p>
         </motion.div>
 
-        {/* 2 highlight lines */}
+        {/* 2 highlight lines (NEW DESIGN: feature strips) */}
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="grid lg:grid-cols-2 gap-6 mb-10"
+          className="grid lg:grid-cols-2 gap-6 mb-12"
         >
-          <div className="rounded-3xl border border-white/20 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 shadow-xl backdrop-blur-xl p-6">
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-              Highlight
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-white leading-relaxed">
-              I can explain complex technical decisions in a way that founders,
-              clients, and teams instantly understand.
-            </p>
+          {/* Strip 1 */}
+          <div className="group relative overflow-hidden rounded-3xl border border-white/15 dark:border-white/10 bg-gradient-to-br from-brand-purple/25 via-white/10 to-brand-cyan/20 dark:from-brand-purple/20 dark:via-white/5 dark:to-brand-cyan/15 p-[1px] shadow-2xl">
+            <div className="relative rounded-3xl bg-white/60 dark:bg-gray-950/40 backdrop-blur-xl p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-mono tracking-[0.22em] uppercase text-gray-500 dark:text-gray-400">
+                    Communication Advantage
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white leading-tight">
+                    Vision → roadmap → execution.
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    I translate founder goals into crisp priorities, clear
+                    trade-offs, and an action plan the team can ship.
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  <div className="h-12 w-12 rounded-2xl bg-white/70 dark:bg-white/10 border border-white/20 dark:border-white/10 flex items-center justify-center">
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">
+                      01
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Product Thinking", "Decision Clarity", "Delivery Focus"].map(
+                  (t) => (
+                    <span
+                      key={t}
+                      className="text-xs px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 border border-white/20 dark:border-white/10 text-gray-900 dark:text-white"
+                    >
+                      {t}
+                    </span>
+                  )
+                )}
+              </div>
+
+              {/* bottom line */}
+              <div className="mt-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+              {/* subtle motion shine */}
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[220px] rotate-12 bg-white/10 blur-2xl" />
+              </div>
+            </div>
           </div>
 
-          <div className="rounded-3xl border border-white/20 dark:border-white/10 bg-white/70 dark:bg-gray-900/60 shadow-xl backdrop-blur-xl p-6">
-            <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-              Highlight
-            </p>
-            <p className="text-lg font-semibold text-gray-900 dark:text-white leading-relaxed">
-              On stage or in product demos, I keep the room engaged — confident,
-              calm, and structured.
-            </p>
+          {/* Strip 2 */}
+          <div className="group relative overflow-hidden rounded-3xl border border-white/15 dark:border-white/10 bg-gradient-to-br from-brand-pink/25 via-white/10 to-brand-purple/20 dark:from-brand-pink/20 dark:via-white/5 dark:to-brand-purple/15 p-[1px] shadow-2xl">
+            <div className="relative rounded-3xl bg-white/60 dark:bg-gray-950/40 backdrop-blur-xl p-7">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-mono tracking-[0.22em] uppercase text-gray-500 dark:text-gray-400">
+                    Stage & Presence
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold text-gray-900 dark:text-white leading-tight">
+                    I keep the room engaged.
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Anchoring + live speaking helps me run sharp demos,
+                    confident client calls, and structured stakeholder updates.
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  <div className="h-12 w-12 rounded-2xl bg-white/70 dark:bg-white/10 border border-white/20 dark:border-white/10 flex items-center justify-center">
+                    <span className="text-lg font-bold text-gray-900 dark:text-white">
+                      02
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {["Anchoring", "Demo & Pitch", "Public Speaking"].map((t) => (
+                  <span
+                    key={t}
+                    className="text-xs px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 border border-white/20 dark:border-white/10 text-gray-900 dark:text-white"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-6 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[220px] rotate-12 bg-white/10 blur-2xl" />
+              </div>
+            </div>
           </div>
         </motion.div>
 
