@@ -83,6 +83,7 @@ export const PhoneScreenContent = () => {
           {/* Text Content */}
           <h3 className="text-2xl font-bold text-white mt-28">Saran Barua</h3>
           <p className="text-white/80 text-sm">Full Stack Developer</p>
+          <p className="text-white/80 text-sm">React Native Developer</p>
         </div>
 
         {/* Featured Content (e.g., Stories) */}

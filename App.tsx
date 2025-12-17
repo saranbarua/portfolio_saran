@@ -21,6 +21,7 @@ import {
   Mic,
   Facebook,
   Briefcase,
+  ArrowUpRight,
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { Project, NavItem } from "./types";
@@ -90,7 +91,7 @@ const PROJECTS: Project[] = [
     type: "app",
     title: "Turf Management App",
     description:
-      "Turf booking management system allows players to easily check available time slots and book a turf online. It helps turf owners manage schedules, pricing in one place.",
+      "Turf  allows players to easily check available time slots and book a turf online. It helps turf owners manage schedules, pricing in one place.",
     technologies: ["React Native", "Expo", "Node Js"],
     metric: { label: "Users", value: "100+" },
     image: IMAGES.Turf,
@@ -102,7 +103,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Mytrams",
     description:
-      "MYTRAMS is a comprehensive travel agency management system that automates and centralizes daily operations for travel businesses.It manages ticketing, visa, hotel and holiday bookings, finance, refunds, reporting, and role-based access to ensure efficient and scalable operations.",
+      "MYTRAMS is a travel agency management system that centralizes daily operations. It handles ticketing, visa, hotel and holiday bookings, finance, refunds, reporting, and role-based access to support efficient and scalable travel businesses.",
     technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
     image: IMAGES.mytrams,
     color: "from-gray-500 to-red-500",
@@ -113,7 +114,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Nested Matrix",
     description:
-      "Nested Matrix is a restaurant automation system designed to streamline daily operations and improve efficiency.It manages orders, billing,inventory, staff workflows, and sales reporting—helping restaurants operate faster, smarter, and more accurately.",
+      "Nested Matrix is a restaurant automation system built to streamline daily operations. It manages orders, billing, inventory, staff workflows, and sales reporting to help restaurants operate faster and with greater accuracy.",
     technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
     image: IMAGES.Nested,
     color: "from-purple-600 to-indigo-600",
@@ -124,7 +125,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Visamind",
     description:
-      "VisaMind is a visa management system designed to simplify and organize visa processing workflows.It handles applicant data, document tracking, status updates, and reporting—helping agencies manage visas efficiently and accurately.",
+      "VisaMind is a visa management system designed to organize processing workflows. It handles applicant records, document tracking, status updates, and reporting to help agencies manage visa operations efficiently.",
     technologies: ["Next Js", "MongoDB", "Node.js"],
     image: IMAGES.visamind,
     color: "from-cyan-600 to-indigo-600",
@@ -135,7 +136,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Travelion",
     description:
-      "Travelion is a B2B travel technology platform designed to simplify and scale travel agency operations.It enables agencies to manage ticketing, visas, hotels, holidays, and partner transactions through a centralized, automation-driven system.",
+      "Travelion is a B2B travel technology platform for managing agency operations. It supports ticketing, visa, hotel, holiday, and partner transactions through a centralized, automation-driven system.",
     technologies: ["React", "MongoDB", "Express Js", "Node.js"],
     image: IMAGES.travilion,
     color: "from-green-600 to-indigo-600",
@@ -146,7 +147,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Hotel Admin Panel",
     description:
-      "Admin Panel is a centralized management system designed to control and monitor multiple modules from a single dashboard.It provides user management, role-based access, data control, and reporting to ensure secure and efficient administration across systems.",
+      "Admin Panel is a centralized system for managing multiple modules. It provides user management, role-based access control, data oversight, and reporting to ensure secure administration.",
     technologies: ["React", "Redux"],
     image: IMAGES.Tramedi,
     color: "from-pink-600 to-indigo-600",
@@ -157,7 +158,7 @@ const PROJECTS: Project[] = [
     type: "web",
     title: "Chattogram Somiti",
     description:
-      "Chattogram Somiti DMM is a digital management system designed to organize and automate Somiti  operations.It manages member data, savings, loans, collections, reporting, and administrative control to ensure transparency and efficient financial management.",
+      "Chattogram Somiti DMM is a digital management system for Somiti operations. It manages members, savings, loans, collections, reporting, and administrative control to ensure transparency.",
     technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
     image: IMAGES.SomitiWeb,
     color: "from-red-600 to-indigo-600",
@@ -685,9 +686,23 @@ export default function App() {
 
         {/* Horizontal Scroll Area */}
         {/* --- APP PROJECTS --- */}
-        <div className="container mx-auto px-6 mb-10">
-          <h3 className="text-2xl font-bold mb-2">Apps</h3>
-          <p className="text-gray-500">Mobile apps with real usage metrics.</p>
+
+        <div className="container mx-auto px-6 mb-12">
+          <div className="flex flex-col gap-4 max-w-2xl">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-brand-purple/10 text-brand-purple px-4 py-1 text-xs font-semibold tracking-wide border border-brand-purple/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
+              Apps
+            </span>
+
+            <h3 className="text-3xl md:text-5xl font-display font-bold leading-tight">
+              Mobile products people actually use.
+            </h3>
+
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+              Built with React Native and shipped to real users — measured by
+              adoption, performance, and long-term maintainability.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 px-3 mb-16">
@@ -708,11 +723,11 @@ export default function App() {
                   className="w-full h-full object-contain rounded-xl mb-4"
                 />
 
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-lg md:text-xl font-display font-semibold text-white leading-snug mb-2">
                   {project.title}
                 </h3>
 
-                <p className="text-white/90 text-sm mb-4">
+                <p className="text-white/85 text-sm md:text-[15px] leading-relaxed">
                   {project.description}
                 </p>
 
@@ -721,17 +736,24 @@ export default function App() {
                   {project.technologies.map((t) => (
                     <span
                       key={t}
-                      className="text-xs px-3 py-1 rounded-full bg-white/15 text-white"
+                      className="text-[11px] px-3 py-1 rounded-full 
+                 bg-white/10 border border-white/15 
+                 text-white/90 tracking-wide"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
-
-                {/* Downloads/Users */}
+                {/* Downloads / Users */}
                 {project.metric && (
-                  <div className="text-white text-sm font-semibold">
-                    {project.metric.value} {project.metric.label}
+                  <div className="flex items-center gap-2 text-white/90 text-sm font-medium">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+                    <span className="font-semibold">
+                      {project.metric.value}
+                    </span>
+                    <span className="text-white/70">
+                      {project.metric.label}
+                    </span>
                   </div>
                 )}
               </div>
@@ -740,9 +762,23 @@ export default function App() {
         </div>
 
         {/* --- WEB PROJECTS --- */}
-        <div className="container mx-auto px-6 mb-10">
-          <h3 className="text-2xl font-bold mb-2">Web</h3>
-          <p className="text-gray-500">Web products and dashboards.</p>
+        <div className="container mx-auto px-6 mb-12">
+          <div className="flex flex-col gap-4 max-w-2xl">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full bg-brand-cyan/10 text-brand-cyan px-4 py-1 text-xs font-semibold tracking-wide border border-brand-cyan/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-cyan" />
+              Web
+            </span>
+
+            <h3 className="text-3xl md:text-5xl font-display font-bold leading-tight">
+              Scalable web systems and dashboards.
+            </h3>
+
+            <p className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+              Full-stack web products built for performance, clarity, and
+              long-term growth — from internal dashboards to customer-facing
+              platforms.
+            </p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 gap-6 px-3 mb-16">
@@ -763,11 +799,11 @@ export default function App() {
                   className="w-full h-full object-contain rounded-xl mb-4"
                 />
 
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-lg md:text-xl font-display font-bold text-white tracking-tight mb-1">
                   {project.title}
                 </h3>
 
-                <p className="text-white/90 text-sm mb-4">
+                <p className="text-white/80 text-sm md:text-[15px] leading-relaxed">
                   {project.description}
                 </p>
 
@@ -776,7 +812,9 @@ export default function App() {
                   {project.technologies.map((t) => (
                     <span
                       key={t}
-                      className="text-xs px-3 py-1 rounded-full bg-white/15 text-white"
+                      className="text-[11px] px-3 py-1 rounded-full 
+                 bg-white/10 border border-white/15 
+                 text-white/90 tracking-wide"
                     >
                       {t}
                     </span>
@@ -784,25 +822,34 @@ export default function App() {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-3">
+                <div className="flex items-center gap-3 mt-4">
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm font-semibold text-white underline"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                 text-sm font-semibold text-white
+                 bg-white/10 border border-white/15
+                 hover:bg-white/20 transition-colors"
                     >
                       Live
+                      <ArrowUpRight className="w-4 h-4" />
                     </a>
                   )}
+
                   {project.repoUrl && (
                     <a
                       href={project.repoUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-sm font-semibold text-white underline"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full
+                 text-sm font-semibold text-white/90
+                 bg-white/5 border border-white/10
+                 hover:bg-white/15 transition-colors"
                     >
                       Repo
+                      <ArrowUpRight className="w-4 h-4" />
                     </a>
                   )}
                 </div>
