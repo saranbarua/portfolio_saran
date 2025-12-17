@@ -911,16 +911,31 @@ export default function App() {
           bg-white/60 dark:bg-white/5 backdrop-blur
           px-6 py-4 hover:shadow-md transition-all"
               >
-                <div>
-                  <h4 className="font-semibold text-lg">{p.name}</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 max-w-xl">
+                <div className="flex flex-col gap-1">
+                  <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
+                    {p.name}
+                  </h4>
+
+                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-xl">
                     {p.desc}
                   </p>
+
+                  {/* Tech */}
+                  <div className="mt-2 flex flex-wrap gap-2">
+                    {p.tech.split("•").map((t) => (
+                      <span
+                        key={t}
+                        className="text-[11px] px-3 py-1 rounded-full
+                   bg-gray-100 dark:bg-white/10
+                   text-gray-700 dark:text-gray-300
+                   border border-gray-200 dark:border-white/10"
+                      >
+                        {t.trim()}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="mt-2 md:mt-0 text-xs font-mono text-gray-500 dark:text-gray-400">
-                  {p.tech}
-                </div>
                 <a
                   href="https://mettadhamma.com"
                   target="_blank"
