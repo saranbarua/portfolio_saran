@@ -49,7 +49,7 @@ const PROJECTS: Project[] = [
     technologies: ["React Native", "Expo", "Node JS"],
     metric: { label: "Users", value: "100+" },
     image: IMAGES.Retailer,
-    color: "from-green-500 to-teal-500",
+    color: "from-pink-500 to-teal-500",
   },
 
   {
@@ -57,7 +57,7 @@ const PROJECTS: Project[] = [
     type: "app",
     title: "Tscore",
     description:
-      "T Score cricket app  is a popular live cricket score and stats app.",
+      "T Score cricket app provides live scores, stats, and news for international and domestic leagues (IPL, BBL, BPL, etc.) timely updates, and features.",
     technologies: ["React Native", "TensorFlow.js"],
     metric: { label: "Users", value: "1k+" },
     image: IMAGES.Tscore,
@@ -83,14 +83,14 @@ const PROJECTS: Project[] = [
     technologies: ["React Native", "Expo", "Firebase"],
     metric: { label: "Users", value: "100+" },
     image: IMAGES.somiti,
-    color: "from-green-500 to-teal-500",
+    color: "from-red-500 to-teal-500",
   },
   {
     id: 6,
     type: "app",
     title: "Turf Management App",
     description:
-      "A turf management app to streamline bookings, payments, and customer management for local sports turfs.",
+      "Turf booking management system allows players to easily check available time slots and book a turf online. It helps turf owners manage schedules, pricing in one place.",
     technologies: ["React Native", "Expo", "Node Js"],
     metric: { label: "Users", value: "100+" },
     image: IMAGES.Turf,
@@ -105,7 +105,7 @@ const PROJECTS: Project[] = [
       "MYTRAMS is a comprehensive travel agency management system that automates and centralizes daily operations for travel businesses.It manages ticketing, visa, hotel and holiday bookings, finance, refunds, reporting, and role-based access to ensure efficient and scalable operations.",
     technologies: ["React", "PostgreSQL", "TypeScript", "Node.js"],
     image: IMAGES.mytrams,
-    color: "from-orange-500 to-red-500",
+    color: "from-gray-500 to-red-500",
     liveUrl: "https://mytrams.com/",
   },
   {
