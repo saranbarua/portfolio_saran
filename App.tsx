@@ -937,7 +937,7 @@ export default function App() {
                 </div>
 
                 <a
-                  href="https://mettadhamma.com"
+                  href={p.url}
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex items-center gap-2 px-4 py-2 whitespace-nowrap rounded-full
