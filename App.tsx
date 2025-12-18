@@ -918,9 +918,9 @@ export default function App() {
               <div
                 key={p.name}
                 className="flex flex-col md:flex-row md:items-center md:justify-between
-          rounded-2xl border border-black/5 dark:border-white/10
-          bg-white/60 dark:bg-white/5 backdrop-blur
-          px-6 py-4 hover:shadow-md transition-all"
+rounded-2xl border border-black/5 dark:border-white/10
+bg-white/60 dark:bg-white/5 backdrop-blur
+px-6 py-4 shadow-sm transition-shadow duration-200 md:hover:shadow-md"
               >
                 <div className="flex mb-4  flex-col gap-1">
                   <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -951,10 +951,9 @@ export default function App() {
                   href={p.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 whitespace-nowrap rounded-full
-             text-sm font-semibold text-brand-purple
-             bg-brand-purple/10 border border-brand-purple/20
-             hover:bg-brand-purple/20 transition-colors"
+                  className="mt-4 md:mt-0 inline-flex w-full md:w-auto justify-center items-center gap-2
+px-4 py-2 rounded-full text-sm font-semibold text-brand-purple
+bg-brand-purple/10 border border-brand-purple/20 hover:bg-brand-purple/20 transition-colors"
                 >
                   Live Site
                   <ArrowUpRight className="w-4 h-4" />
