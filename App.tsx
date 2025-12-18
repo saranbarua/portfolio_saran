@@ -454,6 +454,11 @@ export default function App() {
   const appProjects = PROJECTS.filter((p) => p.type === "app");
   const webProjects = PROJECTS.filter((p) => p.type === "web");
 
+  const [lightbox, setLightbox] = useState<{
+    src: string;
+    alt?: string;
+  } | null>(null);
+
   return (
     <div
       className={`min-h-screen transition-colors duration-500 ${
@@ -911,7 +916,7 @@ export default function App() {
           bg-white/60 dark:bg-white/5 backdrop-blur
           px-6 py-4 hover:shadow-md transition-all"
               >
-                <div className="flex flex-col gap-1">
+                <div className="flex sm:mb-4 md:mb-0 flex-col gap-1">
                   <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
                     {p.name}
                   </h4>
