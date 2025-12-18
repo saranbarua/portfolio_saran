@@ -726,6 +726,9 @@ export default function App() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-contain rounded-xl mb-4"
+                  onClick={() =>
+                    setLightbox({ src: project.image, alt: project.title })
+                  }
                 />
 
                 <h3 className="text-lg md:text-xl font-display font-semibold text-white leading-snug mb-2">
@@ -802,6 +805,9 @@ export default function App() {
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-contain rounded-xl mb-4"
+                  onClick={() =>
+                    setLightbox({ src: project.image, alt: project.title })
+                  }
                 />
 
                 <h3 className="text-lg md:text-xl font-display font-bold text-white tracking-tight mb-1">
@@ -916,7 +922,7 @@ export default function App() {
           bg-white/60 dark:bg-white/5 backdrop-blur
           px-6 py-4 hover:shadow-md transition-all"
               >
-                <div className="flex sm:mb-4 md:mb-0 flex-col gap-1">
+                <div className="flex mb-4  flex-col gap-1">
                   <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
                     {p.name}
                   </h4>
@@ -1352,79 +1358,45 @@ export default function App() {
           </div>
         </div>
       </footer>
+      <AnimatePresence>
+        {lightbox && (
+          <motion.div
+            className="fixed inset-0 z-[99999] bg-black/70 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightbox(null)}
+          >
+            <div className="h-full w-full flex items-center justify-center p-4">
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 260, damping: 22 }}
+                className="relative mx-auto max-w-5xl w-full"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  onClick={() => setLightbox(null)}
+                  className="absolute  right-0 text-white/90 hover:text-white"
+                  aria-label="Close"
+                >
+                  <X />
+                </button>
+
+                <div className="rounded-2xl overflow-hidden bg-black/30 border border-white/10 flex items-center justify-center">
+                  <img
+                    src={lightbox.src}
+                    alt={lightbox.alt || "Preview"}
+                    className="w-auto max-h-[80vh] object-contain"
+                    draggable={false}
+                  />
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
-
-// --- SUB-COMPONENTS FOR APP ---
-
-const InteractiveOrb = () => {
-  const [color, setColor] = useState("#7C3AED"); // Default Purple
-  const [listening, setListening] = useState(false);
-  const [message, setMessage] = useState("Click mic to start voice control");
-
-  const startListening = () => {
-    if (!("webkitSpeechRecognition" in window)) {
-      setMessage("Browser does not support Speech API");
-      return;
-    }
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const recognition = new (window as any).webkitSpeechRecognition();
-    recognition.continuous = false;
-    recognition.lang = "en-US";
-    recognition.interimResults = false;
-
-    setListening(true);
-    setMessage("Listening... Say a color");
-
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    recognition.onresult = (event: any) => {
-      const transcript = event.results[0][0].transcript.toLowerCase();
-      setMessage(`Heard: "${transcript}"`);
-
-      if (transcript.includes("purple")) setColor("#7C3AED");
-      if (transcript.includes("cyan") || transcript.includes("blue"))
-        setColor("#06B6D4");
-      if (transcript.includes("pink") || transcript.includes("red"))
-        setColor("#EC4899");
-      if (transcript.includes("green")) setColor("#10B981");
-
-      setListening(false);
-    };
-
-    recognition.onend = () => setListening(false);
-    recognition.start();
-  };
-
-  return (
-    <div className="relative w-full h-full flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          rotate: [0, 90, 180, 270, 360],
-          backgroundColor: color,
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className="w-40 h-40 rounded-full blur-2xl opacity-80 mix-blend-screen"
-        style={{ boxShadow: `0 0 100px ${color}` }}
-      />
-
-      <button
-        onClick={startListening}
-        className={`absolute bottom-8 flex items-center space-x-2 px-6 py-3 rounded-full backdrop-blur-md border transition-all ${
-          listening
-            ? "bg-red-500/20 border-red-500 text-red-400"
-            : "bg-white/10 border-white/20 text-white hover:bg-white/20"
-        }`}
-      >
-        <Mic size={18} className={listening ? "animate-pulse" : ""} />
-        <span>{listening ? "Listening..." : "Tap to Command"}</span>
-      </button>
-
-      <div className="absolute top-8 text-white/50 font-mono text-sm">
-        {message}
-      </div>
-    </div>
-  );
-};
