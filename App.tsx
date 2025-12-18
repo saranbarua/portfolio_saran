@@ -868,12 +868,13 @@ export default function App() {
             </motion.div>
           ))}
         </div>
+
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="mb-10">
             <span
               className="inline-flex items-center gap-2 rounded-full 
-        bg-black/5 dark:bg-white/10 
-        px-4 py-1 text-xs font-semibold tracking-wide"
+      bg-black/5 dark:bg-white/10 
+      px-4 py-1 text-xs font-semibold tracking-wide"
             >
               Additional Work
             </span>
@@ -917,29 +918,36 @@ export default function App() {
             ].map((p) => (
               <div
                 key={p.name}
-                className="flex flex-col md:flex-row md:items-center md:justify-between
-rounded-2xl border border-black/5 dark:border-white/10
-bg-white/60 dark:bg-white/5 backdrop-blur
-px-6 py-4 shadow-sm transition-shadow duration-200 md:hover:shadow-md"
+                className="
+          rounded-2xl border border-black/5 dark:border-white/10
+          bg-white/60 dark:bg-white/5 backdrop-blur
+          px-5 sm:px-6 py-5
+          shadow-sm
+          transition-shadow duration-200
+          md:hover:shadow-md
+        "
               >
-                <div className="flex mb-4  flex-col gap-1">
+                {/* Top content */}
+                <div className="flex flex-col gap-2">
                   <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
                     {p.name}
                   </h4>
 
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-xl">
+                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                     {p.desc}
                   </p>
 
-                  {/* Tech */}
-                  <div className="mt-2 flex flex-wrap gap-2">
+                  {/* Tech chips */}
+                  <div className="mt-1 flex flex-wrap gap-2">
                     {p.tech.split("•").map((t) => (
                       <span
                         key={t}
-                        className="text-[11px] px-3 py-1 rounded-full
-                   bg-gray-100 dark:bg-white/10
-                   text-gray-700 dark:text-gray-300
-                   border border-gray-200 dark:border-white/10"
+                        className="
+                  text-[11px] px-3 py-1 rounded-full
+                  bg-gray-100 dark:bg-white/10
+                  text-gray-700 dark:text-gray-300
+                  border border-gray-200 dark:border-white/10
+                "
                       >
                         {t.trim()}
                       </span>
@@ -947,17 +955,27 @@ px-6 py-4 shadow-sm transition-shadow duration-200 md:hover:shadow-md"
                   </div>
                 </div>
 
-                <a
-                  href={p.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-4 md:mt-0 inline-flex w-full md:w-auto justify-center items-center gap-2
-px-4 py-2 rounded-full text-sm font-semibold text-brand-purple
-bg-brand-purple/10 border border-brand-purple/20 hover:bg-brand-purple/20 transition-colors"
-                >
-                  Live Site
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
+                {/* Divider (mobile feels nicer) */}
+                <div className="mt-4 border-t border-black/5 dark:border-white/10" />
+
+                {/* CTA */}
+                <div className="mt-4 flex">
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+              inline-flex w-full md:w-auto justify-center items-center gap-2
+              px-4 py-2 rounded-full
+              text-sm font-semibold text-brand-purple
+              bg-brand-purple/10 border border-brand-purple/20
+              hover:bg-brand-purple/20 transition-colors
+            "
+                  >
+                    Live Site
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
