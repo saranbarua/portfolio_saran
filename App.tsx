@@ -1236,7 +1236,7 @@ export default function App() {
                     </p>
                     <a
                       className="font-semibold hover:text-brand-cyan transition-colors"
-                      href="+8801690150490"
+                      href="tel:+8801690150490"
                     >
                       +880-1690150490
                     </a>
@@ -1250,7 +1250,9 @@ export default function App() {
                     </p>
                     <a
                       className="font-semibold hover:text-brand-green transition-colors"
-                      href="+8801746180243"
+                      href="https://wa.me/8801746180243?text=Hi%20Saran,%20I%20want%20to%20discuss%20a%20project."
+                      target="_blank"
+                      rel="noreferrer"
                     >
                       +880-1746180243
                     </a>
