@@ -27,6 +27,7 @@ import { Phone, PhoneScreenContent } from "./components/Phone";
 import { Project, NavItem } from "./types";
 import { IMAGES } from "./components/assets/Images";
 import LeadershipCreativeWork from "./components/LeadershipCreativeWork";
+import { ImageWithLoader } from "./components/ImageWithLoader";
 
 // --- DATA ---
 const PROJECTS: Project[] = [
@@ -722,10 +723,18 @@ export default function App() {
               <div
                 className={`bg-gradient-to-r ${project.color} rounded-2xl p-3`}
               >
-                <img
+                {/* <img
                   src={project.image}
                   alt={project.title}
                   className="w-full h-full object-contain rounded-xl mb-4"
+                  onClick={() =>
+                    setLightbox({ src: project.image, alt: project.title })
+                  }
+                /> */}
+                <ImageWithLoader
+                  src={project.image}
+                  alt={project.title}
+                  wrapperClassName="mb-4 aspect-[16/10] bg-black/10" // fixed image area
                   onClick={() =>
                     setLightbox({ src: project.image, alt: project.title })
                   }
@@ -801,10 +810,10 @@ export default function App() {
               <div
                 className={`bg-gradient-to-r ${project.color} rounded-2xl p-6`}
               >
-                <img
+                <ImageWithLoader
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-contain rounded-xl mb-4"
+                  wrapperClassName="mb-4 aspect-[16/10] bg-black/10"
                   onClick={() =>
                     setLightbox({ src: project.image, alt: project.title })
                   }
@@ -869,113 +878,6 @@ export default function App() {
           ))}
         </div>
 
-        {/* <div className="container mx-auto px-6 max-w-6xl">
-          <div className="mb-10">
-            <span
-              className="inline-flex items-center gap-2 rounded-full 
-      bg-black/5 dark:bg-white/10 
-      px-4 py-1 text-xs font-semibold tracking-wide"
-            >
-              Additional Work
-            </span>
-
-            <h3 className="mt-4 text-3xl font-display font-bold">
-              More projects I’ve built and shipped
-            </h3>
-
-            <p className="mt-2 text-gray-600 dark:text-gray-400">
-              Smaller systems, client work, and internal tools that solved real
-              problems.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {[
-              {
-                name: "MettaDhamma",
-                desc: "A spiritual learning & practice platform focused on Buddhist teachings, meditation, and mindful living.",
-                tech: "Web content & CMS (varied stack)",
-                url: "https://mettadhamma.com",
-              },
-              {
-                name: "Haque & Sons Engineering Technology",
-                desc: "A professional industrial solutions website for elevator and escalator services, showcasing products and maintenance offerings for commercial and residential clients.",
-                tech: "Static business site / Custom CMS (built as part of client/brand presence)",
-                url: "https://haquensons.com",
-              },
-              {
-                name: "InvoiceGenius",
-                desc: "A web-based invoice generation and management tool for small businesses and freelancers, enabling quick invoice creation, PDF export, and billing tracking.",
-                tech: "React • Tailwind • PDF generation",
-                url: "https://invoicegenius.makeupcoders.com/",
-              },
-              {
-                name: "Wanderwise",
-                desc: "A travel calculation and planning web app that helps users estimate routes, total costs, and logistical breakdowns for trips.",
-                tech: "React • Tailwind • Travel logic utilities",
-                url: "https://wanderwise.makeupcoders.com/",
-              },
-            ].map((p) => (
-              <div
-                key={p.name}
-                className="
-          rounded-2xl border border-black/5 dark:border-white/10
-          bg-white/60 dark:bg-white/5 backdrop-blur
-          px-5 sm:px-6 py-5
-          shadow-sm
-          transition-shadow duration-200
-          md:hover:shadow-md
-        "
-              >
-                <div className="flex flex-col gap-2">
-                  <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {p.name}
-                  </h4>
-
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    {p.desc}
-                  </p>
-
-                  <div className="mt-1 flex flex-wrap gap-2">
-                    {p.tech.split("•").map((t) => (
-                      <span
-                        key={t}
-                        className="
-                  text-[11px] px-3 py-1 rounded-full
-                  bg-gray-100 dark:bg-white/10
-                  text-gray-700 dark:text-gray-300
-                  border border-gray-200 dark:border-white/10
-                "
-                      >
-                        {t.trim()}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="mt-4 border-t border-black/5 dark:border-white/10" />
-
-                <div className="mt-4 flex">
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="
-              inline-flex w-full md:w-auto justify-center items-center gap-2
-              px-4 py-2 rounded-full
-              text-sm font-semibold text-brand-purple
-              bg-brand-purple/10 border border-brand-purple/20
-              hover:bg-brand-purple/20 transition-colors
-            "
-                  >
-                    Live Site
-                    <ArrowUpRight className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div> */}
         {/* --- ADDITIONAL WORK --- */}
         <div className="container mx-auto px-6 max-w-6xl">
           <div className="mb-10">
