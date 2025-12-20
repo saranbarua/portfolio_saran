@@ -22,6 +22,8 @@ import {
   Facebook,
   Briefcase,
   ArrowUpRight,
+  InstagramIcon,
+  Instagram,
 } from "lucide-react";
 import { Phone, PhoneScreenContent } from "./components/Phone";
 import { Project, NavItem } from "./types";
@@ -1235,98 +1237,236 @@ export default function App() {
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white/80 dark:bg-gray-900/70 border border-white/20 dark:border-white/10 rounded-3xl p-6 md:p-8 shadow-xl backdrop-blur-xl"
+              className="
+    relative overflow-hidden
+    rounded-3xl p-6 md:p-8
+    bg-white/80 dark:bg-gray-900/70
+    border border-white/20 dark:border-white/10
+    shadow-xl backdrop-blur-xl
+  "
             >
-              <h3 className="text-xl font-semibold mb-6">Reach me directly</h3>
+              {/* Ambient glow */}
+              <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-brand-purple/20 blur-[70px]" />
+              <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-brand-cyan/15 blur-[70px]" />
 
-              <div className="space-y-4 text-sm">
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-purple" />
-                  <div>
+              {/* Header */}
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-[0.22em] text-gray-400">
+                    Contact
+                  </p>
+                  <h3 className="text-xl font-semibold">Reach me directly</h3>
+                  <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                    Fast reply for serious work & collaborations.
+                  </p>
+                </div>
+
+                <span
+                  className="shrink-0 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold
+      bg-brand-purple/10 text-brand-purple border border-brand-purple/20"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-brand-purple" />
+                  Available
+                </span>
+              </div>
+
+              {/* Items */}
+              <div className="space-y-3 text-sm">
+                {/* Personal Email */}
+                <a
+                  href="mailto:saranbarua2357@email.com"
+                  className="
+        group flex items-start gap-4 rounded-2xl p-4
+        bg-white/50 dark:bg-white/5
+        border border-black/5 dark:border-white/10
+        hover:bg-white/70 dark:hover:bg-white/10
+        transition-colors
+        focus:outline-none focus:ring-2 focus:ring-brand-purple/30
+      "
+                >
+                  <div
+                    className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl
+        bg-brand-purple/10 border border-brand-purple/20"
+                  >
+                    <Mail className="h-5 w-5 text-brand-purple" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-gray-500 dark:text-gray-400">
                       Personal Email
                     </p>
-                    <a
-                      className="font-semibold hover:text-brand-purple transition-colors"
-                      href="mailto:saranbarua2357@email.com"
-                    >
+                    <p className="font-semibold text-gray-900 dark:text-white truncate">
                       saranbarua2357@email.com
-                    </a>
+                    </p>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-cyan" />
-                  <div>
+                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-brand-purple transition-colors" />
+                </a>
+
+                {/* Company Email */}
+                <a
+                  href="mailto:saran@makeupcoders.com"
+                  className="
+        group flex items-start gap-4 rounded-2xl p-4
+        bg-white/50 dark:bg-white/5
+        border border-black/5 dark:border-white/10
+        hover:bg-white/70 dark:hover:bg-white/10
+        transition-colors
+        focus:outline-none focus:ring-2 focus:ring-brand-cyan/30
+      "
+                >
+                  <div
+                    className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl
+        bg-brand-cyan/10 border border-brand-cyan/20"
+                  >
+                    <Mail className="h-5 w-5 text-brand-cyan" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-gray-500 dark:text-gray-400">
                       Company Email
                     </p>
-                    <a
-                      className="font-semibold hover:text-brand-cyan transition-colors"
-                      href="mailto:saran@makeupcoders.com"
-                    >
+                    <p className="font-semibold text-gray-900 dark:text-white truncate">
                       saran@makeupcoders.com
-                    </a>
+                    </p>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-cyan" />
-                  <div>
+
+                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-brand-cyan transition-colors" />
+                </a>
+
+                {/* Phone */}
+                <a
+                  href="tel:+8801690150490"
+                  className="
+        group flex items-start gap-4 rounded-2xl p-4
+        bg-white/50 dark:bg-white/5
+        border border-black/5 dark:border-white/10
+        hover:bg-white/70 dark:hover:bg-white/10
+        transition-colors
+        focus:outline-none focus:ring-2 focus:ring-brand-cyan/30
+      "
+                >
+                  <div
+                    className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl
+        bg-brand-cyan/10 border border-brand-cyan/20"
+                  >
+                    <Smartphone className="h-5 w-5 text-brand-cyan" />
+                  </div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-gray-500 dark:text-gray-400">
                       Phone Number
                     </p>
-                    <a
-                      className="font-semibold hover:text-brand-cyan transition-colors"
-                      href="tel:+8801690150490"
-                    >
+                    <p className="font-semibold text-gray-900 dark:text-white truncate">
                       +880-1690150490
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-green" />
-                  <div>
-                    <p className="text-gray-500 dark:text-gray-400">
-                      Whats App
                     </p>
-                    <a
-                      className="font-semibold hover:text-brand-green transition-colors"
-                      href="https://wa.me/8801746180243?text=Hi%20Saran,%20I%20want%20to%20discuss%20a%20project."
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      +880-1746180243
-                    </a>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-brand-pink" />
-                  <div>
+
+                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-brand-cyan transition-colors" />
+                </a>
+
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/8801746180243?text=Hi%20Saran,%20I%20want%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                  className="
+        group flex items-start gap-4 rounded-2xl p-4
+        bg-white/50 dark:bg-white/5
+        border border-black/5 dark:border-white/10
+        hover:bg-white/70 dark:hover:bg-white/10
+        transition-colors
+        focus:outline-none focus:ring-2 focus:ring-brand-green/30
+      "
+                >
+                  <div
+                    className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl
+        bg-brand-green/10 border border-brand-green/20"
+                  >
+                    <span className="text-brand-green font-bold text-sm">
+                      WA
+                    </span>
+                  </div>
+
+                  <div className="min-w-0 flex-1">
+                    <p className="text-gray-500 dark:text-gray-400">WhatsApp</p>
+                    <p className="font-semibold text-gray-900 dark:text-white truncate">
+                      +880-1746180243
+                    </p>
+                  </div>
+
+                  <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-brand-green transition-colors" />
+                </a>
+
+                {/* Location */}
+                <div
+                  className="
+        flex items-start gap-4 rounded-2xl p-4
+        bg-white/50 dark:bg-white/5
+        border border-black/5 dark:border-white/10
+      "
+                >
+                  <div
+                    className="mt-0.5 flex h-10 w-10 items-center justify-center rounded-2xl
+        bg-brand-pink/10 border border-brand-pink/20"
+                  >
+                    <span className="text-brand-pink font-bold text-sm">
+                      📍
+                    </span>
+                  </div>
+
+                  <div className="min-w-0 flex-1">
                     <p className="text-gray-500 dark:text-gray-400">Location</p>
-                    <p className="font-semibold">Chattogram, Bangladesh</p>
+                    <p className="font-semibold text-gray-900 dark:text-white truncate">
+                      Chattogram, Bangladesh
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/10 flex gap-4">
-                <a
-                  href="https://github.com/saranbarua"
-                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                >
-                  <Github size={18} />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/saran-barua/"
-                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                >
-                  <Linkedin size={18} />
-                </a>
-                <a
-                  href="https://www.facebook.com/saran.barua.98/"
-                  className="px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
-                >
-                  <Facebook size={18} />
-                </a>
+              {/* Social */}
+              <div className="mt-7 pt-6 border-t border-white/10 flex items-center justify-between gap-4">
+                <p className="text-xs text-gray-500 dark:text-gray-400">
+                  Prefer socials? I’m active here.
+                </p>
+
+                <div className="flex gap-3">
+                  {[
+                    {
+                      href: "https://www.linkedin.com/in/saran-barua/",
+                      icon: Linkedin,
+                      label: "LinkedIn",
+                    },
+                    {
+                      href: "https://www.facebook.com/saran.barua.98/",
+                      icon: Facebook,
+                      label: "Facebook",
+                    },
+                    {
+                      href: "https://www.instagram.com/saran__barua/",
+                      icon: Instagram,
+                      label: "Instagram",
+                    },
+                  ].map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={s.label}
+                      className="
+            inline-flex items-center justify-center
+            h-11 w-11 rounded-full
+            bg-white/10 hover:bg-white/20
+            border border-white/10
+            transition-colors
+            focus:outline-none focus:ring-2 focus:ring-brand-purple/30
+          "
+                    >
+                      <s.icon size={18} />
+                    </a>
+                  ))}
+                </div>
               </div>
             </motion.div>
 
